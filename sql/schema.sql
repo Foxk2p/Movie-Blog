@@ -1,0 +1,27 @@
+DROP DATABASE IF EXISTS moSQL_db;
+
+CREATE DATABASE moSQL_db;
+
+USE moSQL_db;
+
+CREATE TABLE moviePost (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(60) NOT NULL,
+  director VARCHAR(60) NOT NULL,
+  genre VARCHAR(30) NOT NULL,
+  starring1 VARCHAR(60),
+  mpaaRating VARCHAR(10);
+  postBody TEXT NOT NULL,
+  dateTime VARCHAR(20)
+);
+
+CREATE TABLE users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(20) NOT NULL,
+  password VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE comments (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  body TEXT NOT NULL
+);
