@@ -1,3 +1,8 @@
+
+OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
+// or try trilogy as key
+
+
 // pokemon example api04
 
 document.getElementById('searchMovie').addEventListener('click', event => {
