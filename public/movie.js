@@ -2,6 +2,21 @@
 OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
 // or try trilogy as key
 
+http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
+
+// ---------------------------------------------------------------------------
+
+// pokemon example api03
+
+fetch('')
+  .then(r => r.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch(e => { console.log(e) })
+
+  // ---------------------------------------------------------------------------
+
 
 // pokemon example api04
 
@@ -53,51 +68,51 @@ document.getElementById('searchMovie').addEventListener('click', event => {
 })
 
 
-// --------------------------------
+// ---------------------------------------------------------------
 
 
-// todo list example api04
-const renderItems = () => {
-  document.getElementById('items').innerHTML = ''
-  for (let i = 0; i < items.length; i++) {
-    let itemElem = document.createElement('li')
-    itemElem.classList.add('list-group-item')
-    itemElem.classList.add(items[i]._____ ? 'list-group-item-success' : 'list-group-item-secondary')
-    itemElem.classList.add('d-flex', 'justify-content-between', 'align-items-center')
-    itemElem.innerHTML = `
-          ${items[i].____}
+// // todo list example api04
+// const renderItems = () => {
+//   document.getElementById('items').innerHTML = ''
+//   for (let i = 0; i < items.length; i++) {
+//     let itemElem = document.createElement('li')
+//     itemElem.classList.add('list-group-item')
+//     itemElem.classList.add(items[i]._____ ? 'list-group-item-success' : 'list-group-item-secondary')
+//     itemElem.classList.add('d-flex', 'justify-content-between', 'align-items-center')
+//     itemElem.innerHTML = `
+//           ${items[i].____}
          
-        `
-    document.getElementById('items').append(itemElem)
-  }
-}
+//         `
+//     document.getElementById('items').append(itemElem)
+//   }
+// }
 
 // -----------------------------------------
 
 // starwars example api04
 
-fetch('')
-  .then(r => r.json())
-  .then(movie => {
-    console.log(movie)
+// fetch('')
+//   .then(r => r.json())
+//   .then(movie => {
+//     console.log(movie)
 
-    fetch(movie._______)
-      .then(r => r.json())
-      .then(_______ => {
-        console.log(_______)
-        document.getElementById('movie').innerHTML = `
-          <div class="card-header">Star Wars</div>
-          <div class="card-body">
-            <h5 class="card-title">${movie.name}</h5>
-            <p class="card-text">
-            ${movie.title} text ${movie.cast} text ${movie.duration} text.
-            </p>
-            <p class="card-text">
-            text ${movie.director}.
-            </p>
-          </div>
-          `
-      })
-      .catch(e => console.log(e))
-  })
-  .catch(e => console.log(e))
+//     fetch(movie._______)
+//       .then(r => r.json())
+//       .then(_______ => {
+//         console.log(_______)
+//         document.getElementById('movie').innerHTML = `
+//           <div class="card-header">Star Wars</div>
+//           <div class="card-body">
+//             <h5 class="card-title">${movie.name}</h5>
+//             <p class="card-text">
+//             ${movie.title} text ${movie.cast} text ${movie.duration} text.
+//             </p>
+//             <p class="card-text">
+//             text ${movie.director}.
+//             </p>
+//           </div>
+//           `
+//       })
+//       .catch(e => console.log(e))
+//   })
+//   .catch(e => console.log(e))
