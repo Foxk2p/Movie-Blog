@@ -1,71 +1,71 @@
 
-OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
+// OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
 // or try trilogy as key
 
-http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
+// http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
 
 // ---------------------------------------------------------------------------
 
 // pokemon example api03
 
-fetch('')
+fetch('http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16')
   .then(r => r.json())
   .then(data => {
     console.log(data)
   })
   .catch(e => { console.log(e) })
 
-  // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 
 // pokemon example api04
 
-document.getElementById('searchMovie').addEventListener('click', event => {
-  event.preventDefault()
-  console.log(document.getElementById('Movie').value)
+// document.getElementById('searchMovie').addEventListener('click', event => {
+//   event.preventDefault()
+//   console.log(document.getElementById('Movie').value)
 
-  fetch(`https://${document.getElementById('Movie').value}/`)
-    .then(r => r.json())
-    .then(movie => {
-      console.log(movie)
-      let movieElem = document.createElement('div')
-      movieElem.className = 'card'
-      movieElem.style = 'width: 18rem;'
-      movieElem.innerHTML = `
-          <img 
-            src="${}" 
-            class="card-img-top" 
-            alt="${}">
-          <div class="card-body">
-            <h5 class="card-title">
-              ${}
-            </h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-              <li class="list-group-item">
-                ${}: ${}
-              </li>
-            </ul>
-          </div>
-        `
-      document.getElementById('').append(movieElem)
-    })
-    .catch(e => console.log(e))
-})
+//   fetch(`https://${document.getElementById('Movie').value}/`)
+//     .then(r => r.json())
+//     .then(movie => {
+//       console.log(movie)
+//       let movieElem = document.createElement('div')
+//       movieElem.className = 'card'
+//       movieElem.style = 'width: 18rem;'
+//       movieElem.innerHTML = `
+//           <img 
+//             src="${}" 
+//             class="card-img-top" 
+//             alt="${}">
+//           <div class="card-body">
+//             <h5 class="card-title">
+//               ${}
+//             </h5>
+//             <ul class="list-group list-group-flush">
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//               <li class="list-group-item">
+//                 ${}: ${}
+//               </li>
+//             </ul>
+//           </div>
+//         `
+//       document.getElementById('').append(movieElem)
+//     })
+//     .catch(e => console.log(e))
+// })
 
 
 // ---------------------------------------------------------------
@@ -81,7 +81,7 @@ document.getElementById('searchMovie').addEventListener('click', event => {
 //     itemElem.classList.add('d-flex', 'justify-content-between', 'align-items-center')
 //     itemElem.innerHTML = `
 //           ${items[i].____}
-         
+
 //         `
 //     document.getElementById('items').append(itemElem)
 //   }
