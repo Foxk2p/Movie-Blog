@@ -6,34 +6,6 @@ http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
 
 // ---------------------------------------------------------------------------
 
-// pokemon example api03
-
-// fetch('http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16')
-//   .then(r => r.json())
-//   .then(data => {
-//     console.log(data)
-//   })
-//   .catch(e => { console.log(e) })
-
-// // Object
-// Data.Actors
-// Data.Director
-// Data.Plot
-// Data.Poster
-// Data.Rated
-// Data.Year
-
-
-
-// ---------------------------------------------------------------------------
-
-
-// pokemon example api04
-
-// let searchMovie = 'remember_the_titans'
-
-
-
 document.getElementById('searchMovie').addEventListener('click', event => {
   event.preventDefault()
   console.log(document.getElementById('Movie').value)
@@ -90,9 +62,8 @@ document.getElementById('searchMovie').addEventListener('click', event => {
 
 
 // ---------------------------------------------------------------
-
-
 // // todo list example api04
+
 // const renderItems = () => {
 //   document.getElementById('items').innerHTML = ''
 //   for (let i = 0; i < items.length; i++) {
@@ -107,33 +78,3 @@ document.getElementById('searchMovie').addEventListener('click', event => {
 //     document.getElementById('items').append(itemElem)
 //   }
 // }
-
-// -----------------------------------------
-
-// starwars example api04
-
-// fetch('')
-//   .then(r => r.json())
-//   .then(movie => {
-//     console.log(movie)
-
-//     fetch(movie._______)
-//       .then(r => r.json())
-//       .then(_______ => {
-//         console.log(_______)
-//         document.getElementById('movie').innerHTML = `
-//           <div class="card-header">Star Wars</div>
-//           <div class="card-body">
-//             <h5 class="card-title">${movie.name}</h5>
-//             <p class="card-text">
-//             ${movie.title} text ${movie.cast} text ${movie.duration} text.
-//             </p>
-//             <p class="card-text">
-//             text ${movie.director}.
-//             </p>
-//           </div>
-//           `
-//       })
-//       .catch(e => console.log(e))
-//   })
-//   .catch(e => console.log(e))
