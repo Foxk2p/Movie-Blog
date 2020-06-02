@@ -15,6 +15,8 @@ CREATE TABLE moviePost (
   moviePostId INT AUTO_INCREMENT,
   userId INT,
   title VARCHAR(60) NOT NULL,
+  poster VARCHAR(1000),
+  year VARCHAR(5),
   director VARCHAR(60) NOT NULL,
   genre VARCHAR(60) NOT NULL,
   starring VARCHAR(100),
