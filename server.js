@@ -15,4 +15,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-app.listen(3000, () => console.log('http://localhost:3000'))
+require('./db')
+    .sync({ force: true })
+    .then(() => app.listen(3000, () => console.log('http://localhost:3000')))
+    .catch(err => console.error(err))
