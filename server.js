@@ -1,7 +1,7 @@
 const express = require('express')
 const { join } = require('path')
-const app = express()
 const mysql = require('mysql2')
+const app = express()
 
 // not sure about db name, or if this is correct way to connect to db
 // module.exports = mysql.createConnection('mysql://root:root@localhost:3306/moSQL_db')
