@@ -4,22 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 </head>
-<body>
-
-  <form>
-    <div class="form-group">
-      <label for="name">Movie Name</label>
-      <input type="text" class="form-control" id="Movie">
+<body class= 'teal'>
+  <!-- navbar -->
+  <nav>
+    <div class="nav-wrapper teal darken-3">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a id="loginBtn">Login</a></li>
+        <li><a id="signUpBtn">SignUp</a></li>
+        <li class=hide id=userDisp></li>
+        <li><a class=hide id="logOutBtn">LogOut</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+        <li><input id="searchContent" type="search"></li>        
+        <li id="searchBtn"><a><i class="material-icons searchBtn">search</i></a>
+      </ul>
     </div>
-    <button id="searchMovie" type="submit" class="btn btn-primary">Search Movie</button>
-  </form>
+  </nav>
+
+  <!-- card for sign up -->
+  <div class="row hide" id="signUp">
+    <div class="col s6 push-s3">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <h1>Sign Up</h1>
+          <form>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email">
+                <label for="email">Username</label>
+              </div>
+            </div>
+            <button class="btn waves-effect grey waves-light" type="submit" name="action" id="newUser">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card for login -->
+  <div class="row hide" id="login">
+    <div class="col s6 push-s3">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <h1>Login</h1>
+          <form>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Username</label>
+              </div>
+            </div>
+            <button class="btn waves-effect grey waves-light" type="submit" name="action">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password username" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+    </form>
+  </div> -->
   
   <div id="newMovie"></div>
 
   <script src="movie.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 </body>
 </html>
