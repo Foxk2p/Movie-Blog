@@ -9,8 +9,8 @@ router.get('/users', (req, res) => {
 })
 
 // GET specific user
-router.get('/users/:username', (req, res) => {
-  User.findOne({ username: req.params.username })
+router.get('/users/:id', (req, res) => {
+  User.findOne({ id: req.params.id, include: [Post, Comment] })
   .then(user => res.json(user))
   .catch(err => console.error(err))
 })
@@ -24,9 +24,9 @@ router.post('/users', (req, res) => {
 })
 
 // PUT one user
-router.put('/users/:username', (req, res) => {
+router.put('/users/:id', (req, res) => {
   // requests come in the req.body
-  User.update(req.body, { where: { username: req.params.username } })
+  User.update(req.body, { where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })
