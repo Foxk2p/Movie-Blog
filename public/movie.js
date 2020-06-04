@@ -88,7 +88,7 @@ document.getElementById('searchBtn').addEventListener('click', event => {
           <span class="card-title grey darken-3 text-white">${Data.Title}</span>
         </div>
         <div class="card-content">
-          <ul class="list-group list-group-flush" id='movieCard>
+          <ul class="list-group list-group-flush" id='movieCard'>
               <li class="list-group-item">
                 <h6>Actors:</h6>
                 <p> ${Data.Actors}</p>
