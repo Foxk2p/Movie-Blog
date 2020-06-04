@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// const { User, Movie } = require('TBD')
+const { User, Post, Comment } = require('../models')
 
 // GET all users
 router.get('/users', (req, res) => {
@@ -8,30 +8,32 @@ router.get('/users', (req, res) => {
     .catch(err => console.error(err))
 })
 
-// GET one user
-router.get('/users/:id', (req, res) => {
-  User.findOne({ id: req.params.id, include: [Pet] })
-    .then(user => res.json(user))
-    .catch(err => console.error(err))
+// GET specific user
+router.get('/users/:username', (req, res) => {
+  User.findOne({ username: req.params.username })
+  .then(user => res.json(user))
+  .catch(err => console.error(err))
 })
 
-// POST one user
+//POST new user
 router.post('/users', (req, res) => {
+  // req.boddy must be an object that satisfies both username and password requirements
   User.create(req.body)
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })
 
 // PUT one user
-router.put('/users/:id', (req, res) => {
-  User.update(req.body, { where: { id: req.params.id } })
+router.put('/users/:username', (req, res) => {
+  // requests come in the req.body
+  User.update(req.body, { where: { username: req.params.username } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })
 
 // DELETE one user
-router.delete('/users/:id', (req, res) => {
-  User.destroy({ where: { id: req.params.id } })
+router.delete('/users/:username', (req, res) => {
+  User.destroy({ where: { username: req.params.username } })
     .then(() => res.sendStatus(200))
     .catch(err => console.error(err))
 })

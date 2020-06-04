@@ -1,9 +1,7 @@
 const router = require('express').Router()
 
-
-router.use('/api', require('./movieRoutes.js'))
-router.use('/api', require('./userRoutes.js'))
-router.use('/api', require('./commentRoutes.js'))
-
+router.use('/api', require('./userRoutes'))
+router.use('/api', require('./postRoutes'))
+router.use('/api', require('./commentRoutes'))
 
 module.exports = router
