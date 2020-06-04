@@ -10,7 +10,7 @@ router.get('/posts', (req, res) => {
 
 // GET specific post
 router.get('/posts/:id', (req, res) => {
-  Post.findOne({ postId: req.params.id })
+  Post.findOne({ postId: req.params.id, include: [Comment]})
     .then(post => res.json(post))
     .catch(err => console.error(err))
 })
