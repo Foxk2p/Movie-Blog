@@ -3,6 +3,8 @@ const { join } = require('path')
 const mysql = require('mysql2')
 const app = express()
 
+require('dotenv').config()
+
 // not sure about db name, or if this is correct way to connect to db
 // module.exports = mysql.createConnection('mysql://root:root@localhost:3306/moSQL_db')
 

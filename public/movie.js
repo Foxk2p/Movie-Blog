@@ -1,3 +1,4 @@
+// require('dotenv').config()
 
 // OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
 // or try trilogy as key
@@ -57,6 +58,7 @@ function postToDB(postObject) {
     .then(({ data }) => console.log(data))
     .catch(e => console.error(e))
 }
+
 // event listeners for sign up and login
 document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
 document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
@@ -89,7 +91,11 @@ document.getElementById('searchBtn').addEventListener('click', event => {
     }
   }
 
-  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=764b0a16`)
+
+  const movieKey = '764b0a16'
+  // process.env.MOVIEKEY
+
+  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${movieKey}`)
     .then(r => r.json())
     .then(Data => {
       console.log(Data)
