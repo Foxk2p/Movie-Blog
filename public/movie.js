@@ -1,3 +1,4 @@
+// require('dotenv').config()
 
 // OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
 // or try trilogy as key
@@ -6,47 +7,55 @@ http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
 
 // ---------------------------------------------------------------------------
 // signUp card hide /show
-function hideSignUp(){
+function hideSignUp() {
   if (document.getElementById('signUp').classList[1] === 'hide' && document.getElementById('login').classList[1] === 'hide') {
-    document.getElementById('signUp').classList.remove('hide')}
+    document.getElementById('signUp').classList.remove('hide')
+  }
   else if (document.getElementById('signUp').classList[1] === 'hide' && document.getElementById('login').classList[1] !== 'hide') {
-    return}
+    return
+  }
   else {
-    document.getElementById('signUp').classList.add('hide')}}
+    document.getElementById('signUp').classList.add('hide')
+  }
+}
 
 // login card hide/show
-function hideLogin(){
+function hideLogin() {
   if (document.getElementById('login').classList[1] === 'hide' && document.getElementById('signUp').classList[1] === 'hide') {
-    document.getElementById('login').classList.remove('hide')}
+    document.getElementById('login').classList.remove('hide')
+  }
   else if (document.getElementById('login').classList[1] === 'hide' && document.getElementById('signUp').classList[1] !== 'hide') {
-    return}
+    return
+  }
   else {
-    document.getElementById('login').classList.add('hide')}}
+    document.getElementById('login').classList.add('hide')
+  }
+}
 
-  // removes login and signup buttons and displays username(given) and a log out button
-  function displayUser(username){
-    document.getElementById('loginBtn').classList.add('hide')
-    document.getElementById('signUpBtn').classList.add('hide')
-    document.getElementById('userDisp').classList.remove('hide')
-    document.getElementById('logOutBtn').classList.remove('hide')
-    document.getElementById('userDisp').innerHTML=`Hello ${username}`
-    username = document.getElementById('email').value =''
-    document.getElementById('first_name').value = ''
-    document.getElementById('last_name').value = ''
-  }
-  function logOut(){
-    document.getElementById('loginBtn').classList.remove('hide')
-    document.getElementById('signUpBtn').classList.remove('hide')
-    document.getElementById('userDisp').classList.add('hide')
-    document.getElementById('logOutBtn').classList.add('hide')
-    document.getElementById('userDisp').innerHTML = ``
-  }
+// removes login and signup buttons and displays username(given) and a log out button
+function displayUser(username) {
+  document.getElementById('loginBtn').classList.add('hide')
+  document.getElementById('signUpBtn').classList.add('hide')
+  document.getElementById('userDisp').classList.remove('hide')
+  document.getElementById('logOutBtn').classList.remove('hide')
+  document.getElementById('userDisp').innerHTML = `Hello ${username}`
+  username = document.getElementById('email').value = ''
+  document.getElementById('first_name').value = ''
+  document.getElementById('last_name').value = ''
+}
+function logOut() {
+  document.getElementById('loginBtn').classList.remove('hide')
+  document.getElementById('signUpBtn').classList.remove('hide')
+  document.getElementById('userDisp').classList.add('hide')
+  document.getElementById('logOutBtn').classList.add('hide')
+  document.getElementById('userDisp').innerHTML = ``
+}
 // event listeners for sign up and login
-document.getElementById('signUpBtn').addEventListener('click',event=>{hideSignUp()})
-document.getElementById('loginBtn').addEventListener('click', event => {hideLogin()})
-document.getElementById('logOutBtn').addEventListener('click', event =>{logOut()})
+document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
+document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
+document.getElementById('logOutBtn').addEventListener('click', event => { logOut() })
 // sign up new user
-document.getElementById('newUser').addEventListener('click', event =>{
+document.getElementById('newUser').addEventListener('click', event => {
   event.preventDefault()
   let firstName = document.getElementById('first_name').value
   console.log(firstName)
@@ -60,7 +69,7 @@ document.getElementById('newUser').addEventListener('click', event =>{
 // Takes input from the searchbar and runs it though ombd api to return movie cards w/ basic info and poster
 document.getElementById('searchBtn').addEventListener('click', event => {
   event.preventDefault()
-  document.getElementById('newMovie').innerHTML= ''
+  document.getElementById('newMovie').innerHTML = ''
   console.log(document.getElementById('searchContent').value)
   let Search = document.getElementById('searchContent').value
   let newSearch = ""
@@ -73,7 +82,11 @@ document.getElementById('searchBtn').addEventListener('click', event => {
     }
   }
 
-  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=764b0a16`)
+
+  const movieKey = '764b0a16'
+  // process.env.MOVIEKEY
+
+  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${movieKey}`)
     .then(r => r.json())
     .then(Data => {
       console.log(Data)
