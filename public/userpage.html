@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="username"></h1>
+  <button id="posts"></button>
+  <button id="comments"></button>
+  <div id="info">
+    <h2>${title}</h2>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const currentUser = 1
+    let username = "n/a"
+    axios.get(`/api/users/${currentUser}`)
+      .then(({ data }) => username = data.username)
+      .then(() => document.getElementById('username').innerHTML = username)
+      .then(() => document.getElementById('posts').innerHTML = `${username}'s posts`)
+      .then(() => document.getElementById('comments').innerHTML = `${username}'s comments`)
+      .catch(err => console.log(err))
+  </script>
+</body>
+</html>
