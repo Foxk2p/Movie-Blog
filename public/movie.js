@@ -50,6 +50,15 @@ function logOut() {
   document.getElementById('logOutBtn').classList.add('hide')
   document.getElementById('userDisp').innerHTML = ``
 }
+
+// writes post to database
+let post = {}
+function postToDB(postObject) {
+  axios.post('/api/posts', postObject)
+    .then(({ data }) => console.log(data))
+    .catch(e => console.error(e))
+}
+
 // event listeners for sign up and login
 document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
 document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
@@ -130,7 +139,17 @@ document.getElementById('searchBtn').addEventListener('click', event => {
         `
       document.getElementById('newMovie').append(movieElem)
       document.getElementById('searchContent').value = ''
-
+      post = {
+        title: Data.Title,
+        poster: Data.Poster,
+        director: Data.Director,
+        genre: Data.Genre,
+        starring: Data.Actors,
+        plot: Data.Plot,
+        mpaaRating: Data.Rated,
+        body: "Good movie",
+        userId: 1
+      }
       // next 8 lines refer to creating button links to the post for slected movies as well as a button for creating a post for movies that don't already have one
 
       // if(newSearch already has a post){
@@ -141,6 +160,9 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       //   let addPost = `<li><a class="waves-effect waves-light btn" id='newReq'>Make new post</a></li>`
       //   document.getElementById('movieCard').append(addPost)
       //   }
+    })
+    .then(() => {
+      postToDB(post)
     })
     .catch(e => console.log(e))
 })
