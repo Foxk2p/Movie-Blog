@@ -1,4 +1,4 @@
-const db = require('../config/index')
+const db = require('../connection/index')
 
 module.exports = {
   getAll(table, cb) {
