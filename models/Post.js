@@ -38,6 +38,6 @@ Post.init({
   }
 }, {sequelize, modelName: 'post' })
 
-Post.sync()
+// Post.sync()
 
 module.exports = Post
