@@ -141,7 +141,7 @@ document.getElementById('searchBtn').addEventListener('click', event => {
         starring: Data.Actors,
         plot: Data.Plot,
         mpaaRating: Data.Rated,
-        body: "Good movie",
+        body: document.getElementById('postBody').value,
         userId: 1
       }
       // next 8 lines refer to creating button links to the post for slected movies as well as a button for creating a post for movies that don't already have one
