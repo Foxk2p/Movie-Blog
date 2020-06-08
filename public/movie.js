@@ -119,7 +119,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
 // Takes input from the searchbar and runs it though ombd api to return movie cards w/ basic info and poster
 // document.getElementById('searchBtn').addEventListener('click', event => {
-//   event.preventDefault()
+//   event.preventDefault() test
 // }
 
 // instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
