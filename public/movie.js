@@ -22,8 +22,10 @@ function hideLogin() {
     document.getElementById('login').classList.remove('hide')
   }
   else if (document.getElementById('login').classList[1] === 'hide' && document.getElementById('signUp').classList[1] !== 'hide') {
+
     document.getElementById('signUp').classList.add('hide')
     document.getElementById('login').classList.remove('hide')
+
   }
   else {
     document.getElementById('login').classList.add('hide')
@@ -60,12 +62,12 @@ function postToDB(postObject) {
 
 // event listeners for sign up and login
 
-document.getElementById('signUpBtn').addEventListener('click',event=>{hideSignUp()})
-document.getElementById('loginBtn').addEventListener('click', event => {hideLogin()})
-document.getElementById('logOutBtn').addEventListener('click', event =>{logOut()})
+document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
+document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
+document.getElementById('logOutBtn').addEventListener('click', event => { logOut() })
 
 
-document.getElementById('signUpForm').addEventListener('submit', function(event) {
+document.getElementById('signUpForm').addEventListener('submit', function (event) {
 
   event.preventDefault()
 
@@ -86,6 +88,7 @@ document.getElementById('signUpForm').addEventListener('submit', function(event)
     })
     
   })
+
   .then(response => response.json())
   .then(user => localStorage.setItem('user', JSON.stringify(user)))
   .catch(err => {
@@ -94,12 +97,14 @@ document.getElementById('signUpForm').addEventListener('submit', function(event)
   displayUser(username)
   document.getElementById('signUp').classList.add('hide')
   localStorage.getItem("user")
+
 });
 
-document.getElementById('form').addEventListener('submit', function(event) {
+document.getElementById('form').addEventListener('submit', function (event) {
   event.preventDefault();
   var username = event.target.username.value;
   fetch(`/api/users/${username}`)
+
       .then(function(response) {
           return response.json();
       })
@@ -115,65 +120,6 @@ document.getElementById('form').addEventListener('submit', function(event) {
           document.getElementById('login').classList.add('hide')
       }})
   document.getElementById('user').value = ''
+
 })
 
-// Takes input from the searchbar and runs it though ombd api to return movie cards w/ basic info and poster
-// document.getElementById('searchBtn').addEventListener('click', event => {
-//   event.preventDefault()
-// }
-
-// instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
-
-  //     let movieElem = document.createElement('div')
-  //     movieElem.className = 'card'
-  //     movieElem.style = 'width: 18rem;'
-  //     movieElem.innerHTML = `
-  //   <div class="col s12 m7">
-  //     <div class="card">
-  //       <div class="card-image">
-  //         <img src="${Data.poster}">
-  //         <span class="card-title grey darken-3 text-white">${Data.title}</span>
-  //       </div>
-  //       <div class="card-content">
-  //         <ul class="list-group list-group-flush" id='movieCard'>
-  //             <li class="list-group-item">
-  //               <h6>Actors:</h6>
-  //               <p> ${Data.actors}</p>
-  //             </li>
-  //             <li class="list-group-item">
-  //               <h6>Director:</h6> 
-  //               <p>${Data.director}</p>
-  //             </li>
-  //             <li class="list-group-item">
-  //               <h6>Plot:</h6> 
-  //               <p>${Data.plot}</p>
-  //             </li>
-  //             <li class="list-group-item">
-  //               <h6>Rating:</h6> 
-  //               <p>${Data.mpaaRating}</p>
-  //             </li>
-  //           </ul>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
-  //       `
-  //     document.getElementById('newMovie').append(movieElem)
-  //     document.getElementById('searchContent').value = ''
-  //     post = {
-  //       title: Data.Title,
-  //       poster: Data.Poster,
-  //       director: Data.Director,
-  //       genre: Data.Genre,
-  //       starring: Data.Actors,
-  //       plot: Data.Plot,
-  //       mpaaRating: Data.Rated,
-  //       body: document.getElementById('postBody').value, // needs to be defined earlier
-  //       userId: 1
-  //     }
-  //   })
-//     .then(() => { // do not do
-//       postToDB(post)
-//     })
-//     .catch(e => console.log(e))
-// })
