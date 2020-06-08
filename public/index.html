@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 </head>
 <body class= 'teal'>
   <!-- navbar -->
@@ -31,7 +29,7 @@
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <h1>Sign Up</h1>
-          <form>
+          <form action="/users" method="POST">
             <div class="row">
               <div class="input-field col s6">
                 <input id="first_name" type="text" class="validate">
@@ -55,13 +53,14 @@
     </div>
   </div>
 
+
   <!-- card for login -->
   <div class="row hide" id="login">
     <div class="col s6 push-s3">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <h1>Login</h1>
-          <form>
+          <form id="form">
             <div class="row">
               <div class="input-field col s12">
                 <input id="email" type="email" class="validate">

@@ -1,3 +1,5 @@
+// require('dotenv').config()
+
 
 // ---------------------------------------------------------------------------
 // signUp card hide /show
@@ -52,6 +54,7 @@ function postToDB(postObject) {
     .then(({ data }) => console.log(data))
     .catch(e => console.error(e))
 }
+
 // event listeners for sign up and login
 document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
 document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
@@ -83,8 +86,10 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       newSearch += Search.charAt(i)
     }
   }
+
 // instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
   fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${process.env.OMDBAPIKEY}`)
+
     .then(r => r.json())
     .then(Data => {
       console.log(Data)
