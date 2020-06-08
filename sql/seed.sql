@@ -1,7 +1,7 @@
 USE moSQL_db;
 
-INSERT INTO users (username, password)
-VALUES ("jimmy", "Password1"), ("Ben", "anotherPassword"), ("Michael", "differentPassword"), ("Kele", "lastPassword");
+INSERT INTO users (username, first_name, last_name)
+VALUES ("jimmy", "jimbo", "idk"), ("Ben", "Ben", "R"), ("mpljungh", "Michael", "L"), ("Kele", "K", "Kele");
 
 INSERT INTO moviePost (userId, title, poster, year, director, genre, starring, plot, mpaaRating, postBody, dateTime)
 VALUES (1, "Guardians of the Galaxy Vol. 2", "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg", "2017", "James Gunn","Action, Adventure, Comedy, Sci-Fi","Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel", "movie plot", "PG-13","I really liked this movie","June 1st 2020, 2:15:33 pm"),
