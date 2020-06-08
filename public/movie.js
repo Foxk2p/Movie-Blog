@@ -123,6 +123,9 @@ document.getElementById('searchBtn').addEventListener('click', event => {
   event.preventDefault()
   document.getElementById('newMovie').innerHTML = ''
   console.log(document.getElementById('searchContent').value)
+  let postBody = document.getElementById('postBody').value
+  // let user = window.localStorage.getItem('user').id
+  let user = 1
   let Search = document.getElementById('searchContent').value
   let newSearch = ""
   for (let i = 0; i < Search.length; i++) {
@@ -133,8 +136,13 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       newSearch += Search.charAt(i)
     }
   }
+  console.log(`newSearch: ${newSearch} | postBody: ${postBody} | user: ${user} `)
+  fetch(`api/search/${newSearch}/${postBody}/${user}`)
+		.then((dbData) => console.log(dbData))
+		.catch((e) => console.log(e))
 })
 
+  
 
   // instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
   //   fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${process.env.OMDBAPIKEY}`)
