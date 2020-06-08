@@ -68,6 +68,36 @@
         .catch(e => console.error(e))
     }
 
+// function getAllUsers () {
+// axios.get('/api/users')
+// .then(({ data }) => {
+// users = data
+// })
+// .then(() => getAllPosts())
+// .catch(e => console.error(e))
+// }
+
+// function getAllPosts () {
+// axios.get('/api/posts')
+// .then(({ data }) => {
+// posts = data
+// })
+// .then(() => getAllComments())
+// .catch(e => console.error(e))
+// }
+
+// function getAllComments () {
+// axios.get('/api/comments')
+// .then(({ data }) => {
+// comments = data
+// })
+// .then(() => {
+// displayInfo()
+// })
+// .catch(e => console.error(e))
+// }
+
+
     function displayInfo() {
       users.forEach(user => {
         let elem = document.createElement('h2')
@@ -128,6 +158,31 @@
     }
     getAllUsers()
     
+    // movie object reference from movie.js
+      // <div class="card-content">
+        // <ul class="list-group list-group-flush" id='movieCard'>
+          // <li class="list-group-item">
+            // <h6>Actors:</h6>
+            // <p> ${Data.Actors}</p>
+            // </li>
+          // <li class="list-group-item">
+            // <h6>Director:</h6>
+            // <p>${Data.Director}</p>
+            // </li>
+          // <li class="list-group-item">
+            // <h6>Plot:</h6>
+            // <p>${Data.Plot}</p>
+            // </li>
+          // <li class="list-group-item">
+            // <h6>Rating:</h6>
+            // <p>${Data.Rated}</p>
+            // </li>
+          // <li class="list-group-item">
+            // <h6>Year:</h6>
+            // <p>${Data.Year}</p>
+            // </li>
+          // </ul>
+        // </div>
   </script>
 </body>
 </html>
