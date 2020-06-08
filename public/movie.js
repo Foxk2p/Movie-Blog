@@ -112,6 +112,7 @@ document.getElementById('form').addEventListener('submit', function (event) {
   var username = event.target.username.value;
   fetch(`/api/users/${username}`)
 
+
     .then(function (response) {
       return response.json();
     })
@@ -127,6 +128,7 @@ document.getElementById('form').addEventListener('submit', function (event) {
         document.getElementById('login').classList.add('hide')
       }
     })
+
   document.getElementById('user').value = ''
 
 })
