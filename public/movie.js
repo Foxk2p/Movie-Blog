@@ -1,11 +1,6 @@
 // require('dotenv').config()
 
 
-// OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=764b0a16
-// or try trilogy as key
-
-http://www.omdbapi.com/?t=remember_the_titans&apikey=764b0a16
-
 // ---------------------------------------------------------------------------
 // signUp card hide /show
 function hideSignUp() {
@@ -92,11 +87,9 @@ document.getElementById('searchBtn').addEventListener('click', event => {
     }
   }
 
+// instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
+  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${process.env.OMDBAPIKEY}`)
 
-  const movieKey = '764b0a16'
-  // process.env.MOVIEKEY
-
-  fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${movieKey}`)
     .then(r => r.json())
     .then(Data => {
       console.log(Data)
@@ -148,7 +141,7 @@ document.getElementById('searchBtn').addEventListener('click', event => {
         starring: Data.Actors,
         plot: Data.Plot,
         mpaaRating: Data.Rated,
-        body: "Good movie",
+        body: document.getElementById('postBody').value, // needs to be defined earlier
         userId: 1
       }
       // next 8 lines refer to creating button links to the post for slected movies as well as a button for creating a post for movies that don't already have one
@@ -162,7 +155,7 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       //   document.getElementById('movieCard').append(addPost)
       //   }
     })
-    .then(() => {
+    .then(() => { // do not do
       postToDB(post)
     })
     .catch(e => console.log(e))
