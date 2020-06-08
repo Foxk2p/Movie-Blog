@@ -22,7 +22,7 @@ function hideLogin() {
   }
   else if (document.getElementById('login').classList[1] === 'hide' && document.getElementById('signUp').classList[1] !== 'hide') {
 
-  return
+    return
 
   }
   else {
@@ -59,12 +59,12 @@ function postToDB(postObject) {
 
 // event listeners for sign up and login
 
-document.getElementById('signUpBtn').addEventListener('click',event=>{hideSignUp()})
-document.getElementById('loginBtn').addEventListener('click', event => {hideLogin()})
-document.getElementById('logOutBtn').addEventListener('click', event =>{logOut()})
+document.getElementById('signUpBtn').addEventListener('click', event => { hideSignUp() })
+document.getElementById('loginBtn').addEventListener('click', event => { hideLogin() })
+document.getElementById('logOutBtn').addEventListener('click', event => { logOut() })
 
 
-document.getElementById('signUpForm').addEventListener('submit', function(event) {
+document.getElementById('signUpForm').addEventListener('submit', function (event) {
 
   event.preventDefault()
 
@@ -84,26 +84,26 @@ document.getElementById('signUpForm').addEventListener('submit', function(event)
       username,
     })
   })
-  .then(response => response.json())
-  .then(user => localStorage.setItem('user', JSON.stringify(user)))
-  .catch(err => {
-    console.error(err);
-  });
+    .then(response => response.json())
+    .then(user => localStorage.setItem('user', JSON.stringify(user)))
+    .catch(err => {
+      console.error(err);
+    });
 });
 
-document.getElementById('form').addEventListener('submit', function(event) {
+document.getElementById('form').addEventListener('submit', function (event) {
   event.preventDefault();
 
   var username = event.target.username.value;
   fetch(`/api/users/${username}`)
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function(user) {
-          console.log(user);
-          localStorage.setItem('user', JSON.stringify(user));
-          // window.location.href = '/';
-      })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (user) {
+      console.log(user);
+      localStorage.setItem('user', JSON.stringify(user));
+      // window.location.href = '/';
+    })
 })
 
 // sign up new user
@@ -133,6 +133,8 @@ document.getElementById('searchBtn').addEventListener('click', event => {
       newSearch += Search.charAt(i)
     }
   }
+})
+
 
   // instead of OMDB, we will fetch 'api/search/${newSearch}/${postBody}'
   //   fetch(`http://www.omdbapi.com/?t=${newSearch}&apikey=${process.env.OMDBAPIKEY}`)
@@ -206,4 +208,4 @@ document.getElementById('searchBtn').addEventListener('click', event => {
   //       postToDB(post)
   //     })
   //     .catch(e => console.log(e))
-})
+
