@@ -9,17 +9,24 @@ router.get('/users', (req, res) => {
 })
 
 // GET specific user
-router.get('/users/:id', (req, res) => {
-  User.findOne({ id: req.params.id, include: [Post, Comment] })
-  .then(user => res.json(user))
+
+router.get('/users/:username', (req, res) => {console.log(req.params.username)
+  User.findOne({ where: { username: req.params.username} })
+  .then(user => {res.json(user)})
+
+// router.get('/users/:id', (req, res) => {
+//   User.findOne({ id: req.params.id, include: [Post, Comment] })
+//   .then(user => res.json(user))
+
   .catch(err => console.error(err))
 })
 
 //POST new user
 router.post('/users', (req, res) => {
-  // req.boddy must be an object that satisfies both username and password requirements
+  console.log(req.body)
+  // req.boddy must be an object that satisfies both username
   User.create(req.body)
-    .then(() => res.sendStatus(200))
+    .then(user => {console.log(user); res.json(user)})
     .catch(err => console.error(err))
 })
 

@@ -5,14 +5,15 @@ CREATE DATABASE moSQL_db;
 USE moSQL_db;
 
 CREATE TABLE users (
-  userId INT AUTO_INCREMENT,
+  id INT AUTO_INCREMENT,
   username VARCHAR(20) NOT NULL,
-  password VARCHAR(30) NOT NULL,
-  PRIMARY KEY (userId)
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE moviePost (
-  moviePostId INT AUTO_INCREMENT,
+  id INT AUTO_INCREMENT,
   userId INT,
   title VARCHAR(60) NOT NULL,
   poster VARCHAR(1000),
@@ -24,16 +25,17 @@ CREATE TABLE moviePost (
   mpaaRating VARCHAR(10),
   postBody TEXT NOT NULL,
   dateTime VARCHAR(40),
-  PRIMARY KEY (moviePostId),
-  FOREIGN KEY (userId) REFERENCES users(userId)
+  PRIMARY KEY (id),
+  FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE comments (
-  commentId INT AUTO_INCREMENT,
+  id INT AUTO_INCREMENT,
   moviePostId INT,
   userId INT,
   body TEXT NOT NULL,
-  PRIMARY KEY (commentId),
-  FOREIGN KEY (userId) REFERENCES users(userId),
-  FOREIGN KEY (moviePostId) REFERENCES moviePost(moviePostId)
+  PRIMARY KEY (id),
+  FOREIGN KEY (userId) REFERENCES users(id),
+  FOREIGN KEY (moviePostId) REFERENCES moviePost(id)
 );
+
