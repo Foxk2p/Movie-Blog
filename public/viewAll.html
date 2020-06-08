@@ -3,9 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>View Posts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
+  </head>
+  <body class='teal'>
+    <!-- navbar -->
+    <nav>
+      <div class="nav-wrapper teal darken-3">
+        <a href="#" class="brand-logo">Posts</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="./index.html" id="homeLink">Movie Main Page</a></li>
+          <li><a id="loginBtn">Login</a></li>
+          <li><a id="signUpBtn">SignUp</a></li>
+          <li class=hide id=userDisp></li>
+          <li><a class=hide id="logOutBtn">LogOut</a></li>
+          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+          <li><input id="searchContent" type="search"></li>
+          <li id="searchBtn"><a><i class="material-icons searchBtn">search</i></a>
+        </ul>
+      </div>
+    </nav>
+
   <div id="users">
   </div>
   <div id="posts"></div>
