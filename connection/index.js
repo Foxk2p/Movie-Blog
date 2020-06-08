@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize(process.env.JAWSDB_URL || 'mysql://root:rootroot@localhost:3306/moSQL_db')
+const sequelize = new Sequelize(process.env.JAWSDB_URL)
 
 
 module.exports = sequelize
