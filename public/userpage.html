@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="username"></h1>
+  <button id="posts"></button>
+  <button id="comments"></button>
+  <div id="info">
+    
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const currentUser = 1
+    let username = "n/a"
+    axios.get(`/api/users/${currentUser}`)
+      .then(({ data }) => username = data.username)
+      .then(() => document.getElementById('username').innerHTML = username)
+      .then(() => document.getElementById('posts').innerHTML = `${username}'s posts`)
+      .then(() => document.getElementById('comments').innerHTML = `${username}'s comments`)
+      .catch(err => console.log(err))
+    document.getElementById('posts').addEventListener('click', event => {
+      event.preventDefault()
+      axios.get('/api/posts')
+        .then(({ data }) => {
+          console.log(data)
+          data.forEach(entry => {
+            let elem = document.createElement('div')
+            elem.innerHTML = `
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="${entry.poster}">
+          <span class="card-title grey darken-3 text-white">${entry.title}</span>
+        </div>
+        <div class="card-content">
+          <ul class="list-group list-group-flush" id='movieCard'>
+              <li class="list-group-item">
+                <h6>Actors:</h6>
+                <p> ${entry.starring}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Director:</h6> 
+                <p>${entry.director}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Plot:</h6> 
+                <p>${entry.plot}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Rating:</h6> 
+                <p>${entry.mpaaRating}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Post:</h6> 
+                <p>${entry.body}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>User:</h6>
+                <p>${entry.userId}</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>`
+            document.getElementById('info').append(elem)
+          });
+        })
+        .catch(e => console.error(e))
+    })
+    document.getElementById('comments').addEventListener('click', event => {})
+  </script>
+</body>
+</html>

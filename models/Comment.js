@@ -10,6 +10,6 @@ Comment.init({
   }
 }, { sequelize, modelName: 'comment' })
 
-Comment.sync()
+// Comment.sync()
 
 module.exports = Comment
