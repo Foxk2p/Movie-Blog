@@ -56,20 +56,20 @@
         .then(({ data }) => {
           posts = data
         })
-        .then(() => getAllComments())
+        .then(() => displayInfo())
         .catch(e => console.error(e))
     }
 
-    function getAllComments () {
-      axios.get('/api/comments')
-        .then(({ data }) => {
-          comments = data
-        })
-        .then(() => {
-          displayInfo()
-        })
-        .catch(e => console.error(e))
-    }
+    // function getAllComments () {
+    //   axios.get('/api/comments')
+    //     .then(({ data }) => {
+    //       comments = data
+    //     })
+    //     .then(() => {
+    //       displayInfo()
+    //     })
+    //     .catch(e => console.error(e))
+    // }
 
 // function getAllUsers () {
 // axios.get('/api/users')
@@ -109,7 +109,7 @@
       })
       posts.forEach(post => {
         thisUser = ''
-        axios.get(`/api/users/${post.userId}`)
+        axios.get(`/api/users/${post.name}`)
           .then(({ data }) => {
             console.log(data.username)
             thisUser = data.username
@@ -147,7 +147,7 @@
               </li>
               <li class="list-group-item">
                 <h6>User:</h6>
-                <p>${thisUser}</p>
+                <p>${post.userId}</p>
               </li>
             </ul>
         </div>

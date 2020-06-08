@@ -104,7 +104,6 @@ document.getElementById('form').addEventListener('submit', function (event) {
   event.preventDefault();
   var username = event.target.username.value;
   fetch(`/api/users/${username}`)
-
       .then(function(response) {
           return response.json();
       })
