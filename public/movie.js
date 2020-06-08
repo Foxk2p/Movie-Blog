@@ -52,6 +52,13 @@ function logOut() {
   localStorage.clear()
 }
 
+// Determines if user is already logged in
+if (localStorage.user !== undefined) {
+  let use = (JSON.parse(localStorage.user))
+  console.log(JSON.stringify(use.username))
+  displayUser(use.username)
+}
+
 // writes post to database
 let post = {}
 function postToDB(postObject) {
@@ -86,14 +93,14 @@ document.getElementById('signUpForm').addEventListener('submit', function (event
       last_name,
       username,
     })
-    
+
   })
 
-  .then(response => response.json())
-  .then(user => localStorage.setItem('user', JSON.stringify(user)))
-  .catch(err => {
-    console.error(err);
-  });
+    .then(response => response.json())
+    .then(user => localStorage.setItem('user', JSON.stringify(user)))
+    .catch(err => {
+      console.error(err);
+    });
   displayUser(username)
   document.getElementById('signUp').classList.add('hide')
   localStorage.getItem("user")
@@ -105,20 +112,21 @@ document.getElementById('form').addEventListener('submit', function (event) {
   var username = event.target.username.value;
   fetch(`/api/users/${username}`)
 
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function(user) {
-        if (user === null){
-          return
-        }
-        else{
-          console.log(user);
-          localStorage.setItem('user', JSON.stringify(user));
-          // window.location.href = '/';
-          displayUser(username)
-          document.getElementById('login').classList.add('hide')
-      }})
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (user) {
+      if (user === null) {
+        return
+      }
+      else {
+        console.log(user);
+        localStorage.setItem('user', JSON.stringify(user));
+        // window.location.href = '/';
+        displayUser(username)
+        document.getElementById('login').classList.add('hide')
+      }
+    })
   document.getElementById('user').value = ''
 
 })
