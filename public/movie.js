@@ -29,7 +29,7 @@ function hideLogin(){
     document.getElementById('userDisp').classList.remove('hide')
     document.getElementById('logOutBtn').classList.remove('hide')
     document.getElementById('userDisp').innerHTML=`Hello ${username}`
-    username = document.getElementById('email').value =''
+    username = document.getElementById('username').value =''
     document.getElementById('first_name').value = ''
     document.getElementById('last_name').value = ''
   }
@@ -44,18 +44,61 @@ function hideLogin(){
 document.getElementById('signUpBtn').addEventListener('click',event=>{hideSignUp()})
 document.getElementById('loginBtn').addEventListener('click', event => {hideLogin()})
 document.getElementById('logOutBtn').addEventListener('click', event =>{logOut()})
-// sign up new user
-document.getElementById('newUser').addEventListener('click', event =>{
+
+
+document.getElementById('signUpForm').addEventListener('submit', function(event) {
   event.preventDefault()
-  let firstName = document.getElementById('first_name').value
-  console.log(firstName)
-  let lastName = document.getElementById('last_name').value
-  console.log(lastName)
-  let username = document.getElementById('email').value
-  console.log(username)
-  hideSignUp()
-  displayUser(username)
+
+  var first_name = event.target.first_name.value;
+  var last_name = event.target.last_name.value;
+  var username = event.target.username.value;
+
+  fetch('/api/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      first_name,
+      last_name,
+      username,
+    })
+  })
+  .then(response => response.json())
+  .then(user => localStorage.setItem('user', JSON.stringify(user)))
+  .catch(err => {
+    console.error(err);
+  });
+});
+
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var username = event.target.username.value;
+  fetch(`/api/users/${username}`)
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(user) {
+          console.log(user);
+          localStorage.setItem('user', JSON.stringify(user));
+          // window.location.href = '/';
+      })
 })
+
+// sign up new user
+// document.getElementById('newUser').addEventListener('click', event =>{
+//   event.preventDefault()
+//   let firstName = document.getElementById('first_name').value
+//   console.log(firstName)
+//   let lastName = document.getElementById('last_name').value
+//   console.log(lastName)
+//   let username = document.getElementById('username').value
+//   console.log(username)
+//   hideSignUp()
+//   displayUser(username)
+// })
 // Takes input from the searchbar and runs it though ombd api to return movie cards w/ basic info and poster
 document.getElementById('searchBtn').addEventListener('click', event => {
   event.preventDefault()
