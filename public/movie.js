@@ -51,6 +51,12 @@ function logOut() {
   document.getElementById('userDisp').innerHTML = ``
   localStorage.clear()
 }
+if(localStorage.user !== undefined){
+let use =(JSON.parse(localStorage.user))
+console.log(JSON.stringify(use.username))
+  displayUser(use.username)
+}
+
 
 // Determines if user is already logged in
 if (localStorage.user !== undefined) {
