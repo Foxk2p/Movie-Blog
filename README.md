@@ -12,4 +12,4 @@ mysql2
 sequelize
 
 visit:
-<a href="https://salty-reef-54366.herokuapp.com/" target="_blank">
+<a href="https://salty-reef-54366.herokuapp.com/" target="_blank">Movie Blog App</a>
