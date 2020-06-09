@@ -23,4 +23,4 @@ Kele P.
 Benjamin R.
 
 visit:
-<a href="https://salty-reef-54366.herokuapp.com/" target="_blank">Movie Blog App</a>
+<a href="https://salty-reef-54366.herokuapp.com/" target="_blank"><p>Movie Blog App</p></a>
