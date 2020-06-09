@@ -3,10 +3,10 @@ const { Search } = require('../controllers')
 const { Post } = require('../models')
 const axios = require('axios')
 
-router.get('/search/:search/:postBody', (req, res) => {
+router.get('/search/:search/:postBody/:user', (req, res) => {
 	console.log('connected...')
 	// Search.searchMovies(req, res)
-	const { search, postBody } = req.params
+	const { search, postBody, user } = req.params
 	console.log('search: ', search)
 	axios
 		.get(`http://www.omdbapi.com/?t=${search}&apikey=${process.env.OMDBAPIKEY}`)
@@ -20,7 +20,7 @@ router.get('/search/:search/:postBody', (req, res) => {
 				plot: data.Plot,
 				mpaaRating: data.Rated,
 				body: postBody,
-				userId: 1,
+				userId: user,
 			}
 			// console.log(users.data)
 			Post.create(post)

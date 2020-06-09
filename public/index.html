@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Movie Blog</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body class= 'teal'>
   <!-- navbar -->
   <nav>
     <div class="nav-wrapper teal darken-3">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo">Movie Blog</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="./viewAll.html" id="viewLink">View Posts</a></li>
         <li><a id="loginBtn">Login</a></li>
         <li><a id="signUpBtn">SignUp</a></li>
         <li class=hide id=userDisp></li>
         <li><a class=hide id="logOutBtn">LogOut</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
         <li><input id="searchContent" type="search"></li>        
         <li id="searchBtn"><a><i class="material-icons searchBtn">search</i></a>
       </ul>
@@ -104,7 +104,9 @@
   </div> -->
   
   <div id="newMovie"></div>
-  <input type="text" name="postBody" id="postBody">
+
+
+
 
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
