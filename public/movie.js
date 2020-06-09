@@ -49,6 +49,12 @@ function logOut() {
   document.getElementById('userDisp').innerHTML = ``
   localStorage.clear()
 }
+if(localStorage.user !== undefined){
+let use =(JSON.parse(localStorage.user))
+console.log(JSON.stringify(use.username))
+  displayUser(use.username)
+}
+
 
 // writes post to database
 let post = {}
@@ -105,7 +111,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
       })
       .then(function(user) {
         if (user === null){
-          return
+          document.getElementById('noUser').innerHTML='Not a valid username'
         }
         else{
           console.log(user);
