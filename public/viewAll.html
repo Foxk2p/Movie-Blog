@@ -166,10 +166,51 @@
         console.log('click')
         const search = document.getElementById('searchContent').value
         const toPost = document.getElementById('postBody').value
-        const currentUser = JSON.parse(localStorage.getItem('user')).id
-        axios.get(`/api/search/${search}/${toPost}/${currentUser}`)
+        const currentUser = JSON.parse(localStorage.user)
+        axios.get(`/api/search/${search}/${toPost}/${currentUser.id}`)
           .then( ({ data }) => {
-            
+            let elem = document.createElement('div')
+            elem.innerHTML = `
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="${data.poster}">
+          <span class="card-title grey darken-3 text-white">${data.title}</span>
+        </div>
+        <div class="card-content">
+          <ul class="list-group list-group-flush" id='movieCard'>
+              <li class="list-group-item">
+                <h6>Actors:</h6>
+                <p> ${data.starring}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Director:</h6> 
+                <p>${data.director}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Plot:</h6> 
+                <p>${data.plot}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Rating:</h6> 
+                <p>${data.mpaaRating}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Post:</h6> 
+                <p>${data.body}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>User:</h6>
+                <p>${users[data.userId-1].username}</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>`
+            document.getElementById('posts').append(elem)  
+            document.getElementById('postBody').value = ''
+            document.getElementById('searchContent').value = ''
           })
           .catch(e => console.error(e))
       })

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>View Posts</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+  </head>
+
+  <body class='teal'>
+    <!-- navbar -->
+    <nav>
+      <div class="nav-wrapper teal darken-3">
+        <a href="#" class="brand-logo">Posts</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="./index.html" id="homeLink">Movie Main Page</a></li>
+          <li><a id="loginBtn">Login</a></li>
+          <li><a id="signUpBtn">SignUp</a></li>
+          <li class=hide id=userDisp></li>
+          <li><a class=hide id="logOutBtn">LogOut</a></li>
+          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+          <li><input id="searchContent" type="search"></li>
+          <li id="searchBtn"><a><i class="material-icons searchBtn">search</i></a>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="posts"></div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      let users = []
+      let posts = []
+
+// writes users to users array, then calls getAllPosts
+      const getAllUsers = () => {
+      axios.get('/api/users')
+        .then(({ data }) => {
+          users = data
+        })
+        .then(() => getAllPosts())
+        .catch(e => console.error(e))
+      }
+
+// writes posts to posts array, then calls printAll 
+      const getAllPosts = () => {
+        axios.get('/api/posts')
+          .then(({ data }) => posts = data )
+          .then(() => printAll())
+          .catch(e => console.error(e))
+      }
+
+
+      const printAll = () => {
+        posts.forEach(post => {
+          let elem = document.createElement('div')
+          elem.innerHTML = `<div class="col s12 m7">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="${post.poster}">
+          <span class="card-title grey darken-3 text-white">${post.title}</span>
+        </div>
+        <div class="card-content">
+          <ul class="list-group list-group-flush" id='movieCard'>
+              <li class="list-group-item">
+                <h6>Actors:</h6>
+                <p> ${post.starring}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Director:</h6> 
+                <p>${post.director}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Plot:</h6> 
+                <p>${post.plot}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Rating:</h6> 
+                <p>${post.mpaaRating}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>Post:</h6> 
+                <p>${post.body}</p>
+              </li>
+              <li class="list-group-item">
+                <h6>User:</h6>
+                <p>${users[post.userId-1].username}</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>`
+            document.getElementById('posts').append(elem)
+        })
+      }
+
+      getAllUsers()
+    </script>
+
+    </body>
+</html>
