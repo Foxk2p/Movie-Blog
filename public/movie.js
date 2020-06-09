@@ -38,6 +38,7 @@ function displayUser(username) {
   document.getElementById('signUpBtn').classList.add('hide')
   document.getElementById('userDisp').classList.remove('hide')
   document.getElementById('logOutBtn').classList.remove('hide')
+  document.getElementById('postLink').classList.remove('hide')
   document.getElementById('userDisp').innerHTML = `Hello ${username}`
   username = document.getElementById('username').value = ''
   document.getElementById('first_name').value = ''
@@ -48,12 +49,13 @@ function logOut() {
   document.getElementById('signUpBtn').classList.remove('hide')
   document.getElementById('userDisp').classList.add('hide')
   document.getElementById('logOutBtn').classList.add('hide')
+  document.getElementById('postLink').classList.add('hide')
   document.getElementById('userDisp').innerHTML = ``
   localStorage.clear()
 }
-if(localStorage.user !== undefined){
-let use =(JSON.parse(localStorage.user))
-console.log(JSON.stringify(use.username))
+if (localStorage.user !== undefined) {
+  let use = (JSON.parse(localStorage.user))
+  console.log(JSON.stringify(use.username))
   displayUser(use.username)
 }
 

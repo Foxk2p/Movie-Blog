@@ -26,7 +26,7 @@ function displayInfo() {
     let elem = document.createElement('p')
     // elem.classList.add()
     elem.innerHTML = `${user.username}`
-    document.getElementById('users').append(elem)
+    // document.getElementById('users').append(elem)
   })
   posts.forEach(post => {
     thisUser = ''
