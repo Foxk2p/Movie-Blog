@@ -135,6 +135,9 @@ document.getElementById('searchBtn').addEventListener('click', event => {
     })
     .catch(e => console.error(e))
 })
+
+console.log(users, posts)
+
     // movie object reference from movie.js
       // <div class="card-content">
         // <ul class="list-group list-group-flush" id='movieCard'>
