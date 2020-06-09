@@ -27,14 +27,44 @@
         </ul>
       </div>
     </nav>
-  
+  <input type="text" name="postBody" id="postBody">
+<!--  formatted display for viewing data-->
+  <!-- row hide removed from outer most div class -->
 
-  <div id="users">
+<!-- <div class="container"> -->
+  <div class="row" id="dataView">
+    <div class="col s6 push-s3">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Users</span>
+          <div id="users"></div>
+          <!-- <div id="posts"></div>
+          <div id="comments"></div> -->
+        </div>
+      </div>
+    </div>
   </div>
-  <div id="posts"></div>
-  <div id="comments"></div>
 
-    <input type="text" name="postBody" id="postBody">
+  <!-- Display div for post data -->
+    <div class="row" id="postView">
+      <div class="col s6 l12 push-s3">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+          <!-- <div id="posts"></div> -->
+        </div>
+      </div>
+    </div>
+   </div>
+  <!-- </div> -->
+
+<!-- index.html login div reference for viewall display div -->
+<!-- <div class="" id="dataView">
+  <div class="col s6 push-s3">
+    <div class="card blue-grey darken-1">
+    </div>
+  </div>
+</div> -->
+    
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
@@ -60,50 +90,11 @@
         .catch(e => console.error(e))
     }
 
-    // function getAllComments () {
-    //   axios.get('/api/comments')
-    //     .then(({ data }) => {
-    //       comments = data
-    //     })
-    //     .then(() => {
-    //       displayInfo()
-    //     })
-    //     .catch(e => console.error(e))
-    // }
-
-// function getAllUsers () {
-// axios.get('/api/users')
-// .then(({ data }) => {
-// users = data
-// })
-// .then(() => getAllPosts())
-// .catch(e => console.error(e))
-// }
-
-// function getAllPosts () {
-// axios.get('/api/posts')
-// .then(({ data }) => {
-// posts = data
-// })
-// .then(() => getAllComments())
-// .catch(e => console.error(e))
-// }
-
-// function getAllComments () {
-// axios.get('/api/comments')
-// .then(({ data }) => {
-// comments = data
-// })
-// .then(() => {
-// displayInfo()
-// })
-// .catch(e => console.error(e))
-// }
-
 
     function displayInfo() {
       users.forEach(user => {
-        let elem = document.createElement('h2')
+        let elem = document.createElement('p')
+        // elem.classList.add()
         elem.innerHTML = `${user.username}`
         document.getElementById('users').append(elem)
       })
