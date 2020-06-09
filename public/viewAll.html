@@ -161,6 +161,18 @@
     }
     getAllUsers()
     
+    document.getElementById('searchBtn').addEventListener('click', event => {
+      event.preventDefault()
+        console.log('click')
+        const search = document.getElementById('searchContent').value
+        const toPost = document.getElementById('postBody').value
+        const currentUser = JSON.parse(localStorage.getItem('user')).id
+        axios.get(`/api/search/${search}/${toPost}/${currentUser}`)
+          .then( ({ data }) => {
+            
+          })
+          .catch(e => console.error(e))
+      })
     // movie object reference from movie.js
       // <div class="card-content">
         // <ul class="list-group list-group-flush" id='movieCard'>
