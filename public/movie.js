@@ -138,4 +138,3 @@ document.getElementById('form').addEventListener('submit', function (event) {
   document.getElementById('user').value = ''
 
 })
-
