@@ -22,13 +22,13 @@ To begin simply login/sign up for free at the top of the page or search any movi
 
 ### Authors:
 
-<a href="https://github.com/TuffLuffJimmy" target="_blank">James E.</a>
+- <a href="https://github.com/TuffLuffJimmy" target="_blank">James E.</a>
 
-<a href="https://github.com/Ljunghster" target="_blank">Michael L.</a>
+- <a href="https://github.com/Ljunghster" target="_blank">Michael L.</a>
 
-<a href="https://github.com/Foxk2p" target="_blank">Kele P.</a>
+- <a href="https://github.com/Foxk2p" target="_blank">Kele P.</a>
 
-<a href="https://github.com/benroznos" target="_blank">Benjamin R.</a>
+- <a href="https://github.com/benroznos" target="_blank">Benjamin R.</a>
 
 ### View <a href="https://github.com/Foxk2p/Movie-Blog/pulse" target="_blank">Contributions</a>
 
