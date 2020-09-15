@@ -12,7 +12,7 @@ To begin simply login/sign up for free at the top of the page or search any movi
 
 - Axios - promise-based HTTP client
 
-- Dotenv - zero-dependency module
+- Dotenv - environment variable loader
 
 - Express.js - Node.js framework
 
