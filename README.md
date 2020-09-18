@@ -2,7 +2,7 @@
 
 ### About:
 
-We have all been in quarantine for a long time now and had a lot of time on our hands. If you're anything like us, that means you have watched a lot of movies over the last few months. This application is a place for you to share your thoughts on these movies and read what others thought as well.
+The Covid pandemic has placed much of the world in quarantine, which has made it particularly difficult to socialize and share experiences. Like many others in this situation, we initially found ourselves with more time on our hands, and if you're anything like our team, that means you have watched a lot of movies. This application is a place to share thoughts about movies with a passionate online community. It was built to help people connect in our new social terrain through the magic of movies. 
 
 ### Getting Started:
 
