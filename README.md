@@ -32,4 +32,6 @@ To begin, simply login/sign up for free at the top of the page or search any mov
 
 ### View <a href="https://github.com/Foxk2p/Movie-Blog/graphs/contributors" target="_blank">Contributions</a>
 
+### Project <a href="https://foxk2p.github.io/Movie-Blog-Preview/" target="_blank">Preview</a>
+
 ### Visit <a href="https://salty-reef-54366.herokuapp.com/" target="_blank">Movie Blog!</a>
