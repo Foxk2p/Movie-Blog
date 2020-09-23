@@ -6,7 +6,7 @@ The Covid pandemic has placed much of the world in quarantine, which has made it
 
 ### Getting Started:
 
-To begin, simply login/sign up for free at the top of the page or search any movie in the top right corner to read others' reviews.
+To begin, simply log in or sign up for free at the top of the page. To search for a movie or write/view posts, use the respective navigation bar menu items in the top right corner.
 
 ### Built With:
 
